@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42117A1F1DBFDDFA00ADE804 /* pokemon.csv in Resources */ = {isa = PBXBuildFile; fileRef = 42117A1E1DBFDDFA00ADE804 /* pokemon.csv */; };
 		424FA8B81DBFDB4600BDBFDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424FA8B71DBFDB4600BDBFDA /* AppDelegate.swift */; };
 		424FA8BA1DBFDB4600BDBFDA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 424FA8B91DBFDB4600BDBFDA /* ViewController.swift */; };
 		424FA8BD1DBFDB4600BDBFDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 424FA8BB1DBFDB4600BDBFDA /* Main.storyboard */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		42117A1E1DBFDDFA00ADE804 /* pokemon.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pokemon.csv; sourceTree = "<group>"; };
 		424FA8B41DBFDB4600BDBFDA /* pokedex3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = pokedex3.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		424FA8B71DBFDB4600BDBFDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		424FA8B91DBFDB4600BDBFDA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 				424FA8B91DBFDB4600BDBFDA /* ViewController.swift */,
 				424FA8BB1DBFDB4600BDBFDA /* Main.storyboard */,
 				424FA8BE1DBFDB4600BDBFDA /* Assets.xcassets */,
+				42117A1E1DBFDDFA00ADE804 /* pokemon.csv */,
 				424FA8C01DBFDB4600BDBFDA /* LaunchScreen.storyboard */,
 				424FA8C31DBFDB4600BDBFDA /* Info.plist */,
 			);
@@ -125,6 +128,7 @@
 			files = (
 				424FA8C21DBFDB4600BDBFDA /* LaunchScreen.storyboard in Resources */,
 				424FA8BF1DBFDB4600BDBFDA /* Assets.xcassets in Resources */,
+				42117A1F1DBFDDFA00ADE804 /* pokemon.csv in Resources */,
 				424FA8BD1DBFDB4600BDBFDA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -299,6 +303,7 @@
 				424FA8C81DBFDB4600BDBFDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
