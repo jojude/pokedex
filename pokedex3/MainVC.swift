@@ -144,7 +144,6 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
     }
     
     
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         if inSearchMode{
@@ -177,10 +176,11 @@ class MainVC: UIViewController, UICollectionViewDelegate, UICollectionViewDataSo
             
             let lower = searchBar.text!.lowercased()
             
-            //the filteredPokemon list is each to the original pokemon list but filter
-            // $0 is thought of a placeholder for any pokemon in the array
-            //take the name value of that and saying is what we put into the search bar
-            //contained in that name and if it is we put it in the pokemon list
+            /*the filteredPokemon list is each to the original pokemon list but filter
+            $0 is thought of a placeholder for any pokemon in the array
+            take the name value of that and saying is what we put into the search bar
+            contained in that name and if it is we put it in the pokemon list*/
+            
             filteredPokemon = pokemon.filter({$0.name.range(of: lower) != nil })
             collection.reloadData()
             
