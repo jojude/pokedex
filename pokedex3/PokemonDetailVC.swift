@@ -121,7 +121,6 @@ class PokemonDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
     }
     
     
-    
     /*Build table of moves for pokemon based on level up
     only appears if moves from segment controller is selected*/
     

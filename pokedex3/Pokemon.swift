@@ -32,6 +32,7 @@ class Pokemon{
     private var _pokemonMovePower = [String!]()
     private var _pokemonMoveAccuracy = [String!]()
     private var _pokemonMovePP = [String!]()
+    private var _pokemonSelected = [String!]()
     
     
     //data protection/hiding to assure to return a real value or return nil
@@ -247,45 +248,54 @@ class Pokemon{
                 }
                 
                 // Get level_up moves for pokemon
-                if let moves = dict["moves"] as? [Dictionary<String, AnyObject>] , moves.count > 0{
-                    for move in moves{
+                if self._pokemonSelected.contains(where: { (name) -> Bool in
+                    return true
+                }){
+                    /*make sure data isn't loaded a second time if user looks at
+                      at the same pokemon again */
+                }else{
+                    if let moves = dict["moves"] as? [Dictionary<String, AnyObject>] , moves.count > 0{
+                        for move in moves{
                         
-                        if move["learn_type"] as? String == "level up"{
+                            if move["learn_type"] as? String == "level up"{
                             
-                            if let moveLvl = move["level"] as? Int{
-                                self._pokemonMoveLvl.append("\(moveLvl)")
-                            }
+                                if let moveLvl = move["level"] as? Int{
+                                    self._pokemonMoveLvl.append("\(moveLvl)")
+                                }
                             
-                            if let url = move["resource_uri"]{
-                                let descriptionURL = "\(URL_BASE)\(url)"
+                                if let url = move["resource_uri"]{
+                                    let descriptionURL = "\(URL_BASE)\(url)"
                                 
-                                Alamofire.request(descriptionURL).responseJSON(completionHandler: { (response) in
-                                    if let dict = response.result.value as? Dictionary<String, AnyObject>{
+                                    Alamofire.request(descriptionURL).responseJSON(completionHandler: { (response) in
+                                        if let dict = response.result.value as? Dictionary<String, AnyObject>{
                                         
-                                        if let name = dict["name"] as? String{
-                                            self._pokemonMoveName.append(name)
+                                            if let name = dict["name"] as? String{
+                                                self._pokemonMoveName.append(name)
+                                            }
+                                            if let description = dict["description"] as? String{
+                                                self._pokemonMoveDescription.append(description)
+                                            }
+                                            if let power = dict["power"] as? Int{
+                                                self._pokemonMovePower.append("\(power)")
+                                            }
+                                            if let accuracy = dict["accuracy"] as? Int{
+                                                self._pokemonMoveAccuracy.append("\(accuracy)")
+                                            }
+                                            if let pp = dict["pp"] as? Int{
+                                                self._pokemonMovePP.append("\(pp)")
+                                            }
                                         }
-                                        if let description = dict["description"] as? String{
-                                            self._pokemonMoveDescription.append(description)
-                                        }
-                                        if let power = dict["power"] as? Int{
-                                            self._pokemonMovePower.append("\(power)")
-                                        }
-                                        if let accuracy = dict["accuracy"] as? Int{
-                                            self._pokemonMoveAccuracy.append("\(accuracy)")
-                                        }
-                                        if let pp = dict["pp"] as? Int{
-                                            self._pokemonMovePP.append("\(pp)")
-                                        }
-                                    }
-                                })
-                                completed()
-                            }else{
-                                self._pokemonMoveName = []
-                                self._pokemonMoveDescription = []
-                                self._pokemonMovePP = []
-                                self._pokemonMovePower = []
-                                self._pokemonMoveAccuracy = []
+                                    })
+                                    completed()
+                                    //add name onto array to check later
+                                    self._pokemonSelected.append(self.name)
+                                }else{
+                                    self._pokemonMoveName = []
+                                    self._pokemonMoveDescription = []
+                                    self._pokemonMovePP = []
+                                    self._pokemonMovePower = []
+                                    self._pokemonMoveAccuracy = []
+                                }
                             }
                         }
                     }
