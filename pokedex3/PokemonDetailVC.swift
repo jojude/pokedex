@@ -45,7 +45,7 @@ class PokemonDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         pokemon.downloadPokemonDetails {
             //only called after network call is complete
             self.updateUI()
-            self.pokemonMovesTableView.reloadData()
+            //self.pokemonMovesTableView.reloadData()
         }
 
     }
