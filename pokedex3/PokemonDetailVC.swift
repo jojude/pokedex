@@ -41,6 +41,7 @@ class PokemonDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         pokemonMovesTableView.delegate = self
         pokemonMovesTableView.dataSource = self
         pokemonMovesTableView.isHidden = true
+        pokemonMovesTableView.contentInset = UIEdgeInsetsMake(0, 0, 120, 0)
         
         pokemon.downloadPokemonDetails {
             //only called after network call is complete
@@ -106,11 +107,13 @@ class PokemonDetailVC: UIViewController, UITableViewDelegate, UITableViewDataSou
         
         if segementController.selectedSegmentIndex == 1{
             hidePokeBio()
+            self.pokemonMovesTableView.reloadData()
             pokemonMovesTableView.isHidden = false
         }else if segementController.selectedSegmentIndex == 0{
             showPokeBio()
             pokemonMovesTableView.isHidden = true
         }
+        
     }
     
     @IBAction func backButtonPressed(_ sender: AnyObject) {
